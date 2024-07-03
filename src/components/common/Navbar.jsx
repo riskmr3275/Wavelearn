@@ -44,8 +44,9 @@ function Navbar() {
       setLoading(true);
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API);
-        console.log(res);
+        // console.log(res.data.data);
         setSubLinks(res.data.data);
+        
       } catch (error) {
         console.log("Could not fetch Categories.", error);
       }
@@ -53,7 +54,7 @@ function Navbar() {
     })();
   }, []);
 
-  // console.log("sub links", subLinks)
+ 
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
@@ -104,11 +105,12 @@ function Navbar() {
                           <p className="text-center">Loading...</p>
                         ) : subLinks?.length ? (
                           <>
-                            {subLinks
-                              ?.filter(
-                                (subLink) => subLink?.courses?.length > 0
-                              )
+                            {
+                            
+                            subLinks
+                                                  
                               ?.map((subLink, i) => (
+                                
                                 <Link
                                   to={`/catalog/${subLink.name
                                     .split(" ")

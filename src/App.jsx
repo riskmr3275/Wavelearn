@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import Error from './pages/Error'
 import './App.css'
 import {Route,Routes} from'react-router-dom'
 import Home from "./pages/Home"
 import Navbar from './components/common/Navbar'
 import OpenRoute from "./components/core/Auth/OpenRoute"
-
+import ForgotPassword from './pages/ForgotPassword'
 import Login from './pages/Login'
 import Signup from './pages/Singup'
+
 
 function App() {
   return (
@@ -27,6 +29,14 @@ function App() {
           element={
             <OpenRoute>
               <Signup />
+            </OpenRoute>
+          }
+        />
+         <Route
+          path="forgot-password"
+          element={
+            <OpenRoute>
+              <ForgotPassword />
             </OpenRoute>
           }
         />
