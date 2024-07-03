@@ -13,7 +13,7 @@ import ProfileDropdown from "../core/Auth/ProfileDropdown";
 
 // const subLinks = [
 //   {
-//     title: "Python",
+//       title: "Python",
 //     link: "/catalog/python",
 //   },
 //   {
@@ -108,7 +108,7 @@ function Navbar() {
                             {
                             
                             subLinks
-                                                  
+
                               ?.map((subLink, i) => (
                                 
                                 <Link
