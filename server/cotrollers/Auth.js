@@ -4,7 +4,6 @@ const otpGenerate = require("otp-generator")
 const bcrypt = require("bcrypt")
 const Profile = require("../models/Profile")
 const jwt = require("jsonwebtoken")
-const { findOneAndUpdate } = require("../models/Category")
 const mailSender = require("../utils/mailSender")
 const {accountLogin}=require("../Mail/Template/AccountLogin")
 require("dotenv").config()
@@ -14,13 +13,13 @@ require("dotenv").config()
 // ++++++++++++++++++++++++++++++++++++++++++++++++=Send Otp Function++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 exports.sendotp = async (req, res) => {
     try {
-        // fetch email from reqki body
+        // fetch email from req ki body
         const { email } = req.body;
 
         // check EMail is already Registered or not
         const checkUserPresent = await User.findOne({ email });
 
-        //    If already Exixst then ,return a resoinse///////////////////
+        //    If already Exixst then ,return aresponse
         if (checkUserPresent) {
             return res.status(200).json({
                 success: false,
@@ -36,7 +35,7 @@ exports.sendotp = async (req, res) => {
         })
         console.log(otp);
 
-        // if Otp unique na ho aur db me exits krti ho toh agian n again otp regenerate krna hoga
+        // if Otp unique na ho mtlb db me exit krta hai toh agian n again otp regenerate krna hoga
         let result = await OTP.findOne({ otp: otp })
 
         while (result) {
@@ -76,7 +75,7 @@ exports.sendotp = async (req, res) => {
 
 
 exports.signup = async (req, res) => {
-    try {
+    try { 
         // Saare information body se nikal lo
         const {
             firstName,
@@ -205,7 +204,7 @@ exports.login = async (req, res) => {
             await mailSender(user.email,"Login Activity",accountLogin(user.firstName))
             res.cookie("token", token, options).status(200).json({
                 success: true,
-                token,
+                token, 
                 user,
                 message: "Logged in successsfully"
             })
@@ -246,7 +245,7 @@ exports.changePassword = async (req, res) => {
     try {
         // Fetch Data
         const { oldPassword, newPassword, confirmNewPassword } = req.body;
-        const userId = req.user._id; // Assuming user ID is available in req.user
+        const userId = req.user._id; // Assuming user ID is available in req.user while auth is runing and jwt is decoded and push it into the req.user
 
         // Validate the input
         if (newPassword !== confirmNewPassword) {

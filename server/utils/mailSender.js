@@ -3,17 +3,17 @@ const nodemailer = require("nodemailer")
 const mailSender = async (email, title, body) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,
+      host: process.env.MAIL_HOST,//type of mail system want to use(ex: gmail,yahoo,rediff.....etc)
       auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+        user: process.env.MAIL_USER,//company mail address or admin mail address
+        pass: process.env.MAIL_PASS,// less secured password that generated from in company mail account
       },
       secure: false,
     })
 
     let info = await transporter.sendMail({
       from: `"Wave Learn" <${process.env.MAIL_USER}>`, // sender address
-      to: `${email}`, // list of receivers
+      to: `${email}`, // list of receivers//receiver address
       subject: `${title}`, // Subject line
       html: `${body}`, // html body
     })

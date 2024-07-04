@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const { type } = require("os")
-const Profile=require("../models/Profile")
+const Profile = require("../models/Profile")
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -27,9 +27,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    realPassword: {
+        type: String
+    },
+    // The "accountType" field in your Mongoose schema is a string that can only have one of three values: "Admin," "Student," or "Instructor."
+    // This is enforced using the enum property in the schema definition.
     accountType: {
         type: String,
-        enum: ["Admin", "Student", "Instructor"],
+        enum: ["Admin", "Student", "Instructor"],//The enum property restricts a field to a predefined set of values.
         required: true
     },
     additionalDetails: {
@@ -43,7 +48,7 @@ const userSchema = new mongoose.Schema({
     },
     token: {
         type: String,
-        expires: 5* 60*60
+        expires: 5 * 60 * 60 //5 hours in seconds
     },
     resetPasswordExpires: {
         type: Date
@@ -56,7 +61,7 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "CourseProgress"
     },
-    
+
 })
 
 module.exports = mongoose.model("User", userSchema);

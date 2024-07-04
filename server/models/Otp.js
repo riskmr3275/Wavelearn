@@ -12,6 +12,7 @@ const otpSchema = new mongoose.Schema({
     type: String,
     required: true
   }],
+  // created attribute is help to remove the otp after getration of five minute
   createdAt: {
     type: Date,
     default: Date.now(),
@@ -39,3 +40,15 @@ otpSchema.pre("save",async function(next){
 
 
 module.exports = mongoose.model("OTP", otpSchema) 
+
+
+
+
+
+
+//1. otpSchema.pre("save", async function(next) {...}):
+    // This is a pre-save middleware that runs before the document is saved to the database.
+    // The async function(next) allows for asynchronous operations within the middleware.
+    
+// 2. (this.isNew) { ... }:
+  // The condition this.isNew checks if the document is being created for the first time (i.e., it's a new document).

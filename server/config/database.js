@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 exports.connect = () => {
-    const mongoUri = process.env.MONGODB_URL;
+    const mongoUrl = process.env.MONGODB_URL;
 
-    if (!mongoUri) {
+    if (!mongoUrl) {
         console.error("MONGODB_URL environment variable is not defined.");
         process.exit(1);
     }
 
-    mongoose.connect(mongoUri, {
+    mongoose.connect(mongoUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

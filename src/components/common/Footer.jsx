@@ -172,7 +172,9 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made with ❤️Risu Gupta © 2024 Wavelearn. All right reserved</div>
+          <div className="text-center">
+            Made with ❤️Risu Gupta © 2024 Wavelearn. All right reserved
+          </div>
         </div>
       </div>
     </div>

@@ -5,10 +5,10 @@ const initialState = {
   cart: localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [],
-  total: localStorage.getItem("total")
+  total: localStorage.getItem("total")//total number of item in the cart
     ? JSON.parse(localStorage.getItem("total"))
     : 0,
-  totalItems: localStorage.getItem("totalItems")
+  totalItems: localStorage.getItem("totalItems")//total amount value of the cart
     ? JSON.parse(localStorage.getItem("totalItems"))
     : 0,
 }

@@ -16,7 +16,7 @@ exports.uploadImageToCloudinary = async (file, folder, height, quality) => {
 
    
     try {
-        const result = await cloudinary.uploader.upload(file.tempFilePath, options);
+        const result = await cloudinary.uploader.upload(file.tempFilePath, options);//yaha image ki url result me save ho jayegi
         return result;
     } catch (error) 
     {

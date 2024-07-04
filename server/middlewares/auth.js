@@ -41,8 +41,8 @@ exports.isStudent = async (req, res, next) => {
     try {
         if (req.user.accountType !== "Student") {
             return res.status(401).json({
-                success:false,
-                message:"This is protected route for student only"
+                success: false,
+                message: "This is protected route for student only"
             });
         }
         next();
@@ -60,8 +60,8 @@ exports.isInstructor = async (req, res, next) => {
     try {
         if (req.user.accountType !== "Instructor") {
             return res.status(401).json({
-                success:false,
-                message:"This is protected route for Instructor only"
+                success: false,
+                message: "This is protected route for Instructor only"
             });
         }
         next();
@@ -80,8 +80,8 @@ exports.isAdmin = async (req, res, next) => {
     try {
         if (req.user.accountType !== "Admin") {
             return res.status(401).json({
-                success:false,
-                message:"This is protected route for Admin only"
+                success: false,
+                message: "This is protected route for Admin only"
             });
         }
         next();
@@ -92,3 +92,10 @@ exports.isAdmin = async (req, res, next) => {
         });
     }
 }
+
+
+
+// Middleware in Node.js is a function that processes requests and responses in the middle
+//  of the request-response cycle. It can modify the request and response objects, end the
+//   request-response cycle, or call the next middleware function in the stack. Middleware
+//   functions are essential for tasks such as handling authentication, logging, parsing request bodies, and more.

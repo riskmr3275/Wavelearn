@@ -4,11 +4,13 @@ const { describe } = require("node:test")
 const categorySchema = new mongoose.Schema({
       name:{
         type:String,
-        required:true
+        required:true,
+        trim:true
       },
       description:
       {
-        type:String
+        type:String,
+        trim:true
       },
       course:{
         type:mongoose.Schema.Types.ObjectId,
