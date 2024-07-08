@@ -84,11 +84,12 @@ exports.signup = async (req, res) => {
             password,
             confirmPassword,
             accountType,
-            contactNumber,
-            otp
+            otp,
+            contactNumber
         } = req.body;
+        console.log(req.body);
         // Validate kalro sare body values ko
-        if (!firstName || !lastName || !email || !password || !confirmPassword || !accountType || !contactNumber || !otp) {
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !accountType  || !otp||!contactNumber) {
             return res.status(403).json({
                 success: false,
                 message: "All fields are required"
@@ -147,10 +148,11 @@ exports.signup = async (req, res) => {
             // creating automatic image or we can say dafault imge api
             image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`
         })
+        console.log(user);
         return res.status(200).json({
             success: true,
             message: "User id registered successfully",
-            user,
+            signupData:user,
         })
 
     } catch (error) {
@@ -196,21 +198,21 @@ exports.login = async (req, res) => {
             const token = jwt.sign(payLoad, process.env.JWT_SECRET, { expiresIn: "2h" });
             user.token = token;
             user.password = undefined;
-            // Create ccokie and send resposne
+            // Create ccokie and send resposne to the browser
             const options = {
                 expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),//represent the three days ,
                 httpOnly: true
             }
-            await mailSender(user.email,"Login Activity",accountLogin(user.firstName))
-            res.cookie("token", token, options).status(200).json({
+            await mailSender(user.email,"Login activity",accountLogin(user.firstName))
+            res.cookie("token1", token, options).status(200).json({
                 success: true,
                 token, 
                 user,
                 message: "Logged in successsfully"
             })
         }
-        else {
-            return res.status(401).json({
+        else{
+             return res.status(401).json({
                 success: false,
                 message: "Password is incorrect"
             })

@@ -57,19 +57,22 @@ export function signUp(
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
-        accountType,
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword,
-        otp,
-      });
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword,
+            accountType,
+            otp,
+            contactNumber:"7979767459"
+      }).catch((error)=>console.log("error form frontend",error));
 
       console.log("SIGNUP API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
+        toast.error("cannot signup")
+        return 
       }
       toast.success("Signup Successful");
       navigate("/login");
@@ -136,7 +139,7 @@ export function getPasswordResetToken(email, setEmailSent) {
       toast.success("Reset Email Sent");
       setEmailSent(true);
     } catch (error) {
-      console.log("RESETPASSTOKEN ERROR............", error);
+      console.log("RESETPASS TOKEN ERROR............", error);
       toast.error("Failed To Send Reset Email");
     }
     toast.dismiss(toastId);
@@ -161,14 +164,17 @@ export function resetPassword(password, confirmPassword, token, navigate) {
         throw new Error(response.data.message);
       }
 
-      toast.success("Password Reset Successfully");
+      toast.success("Password Reset Successfully in auth api page");
       navigate("/login");
     } catch (error) {
       console.log("RESETPASSWORD ERROR............", error);
-      toast.error("Failed To Reset Password");
+      toast.error("Failed To Reset Password in auth api page");
+       
+
     }
     toast.dismiss(toastId);
     dispatch(setLoading(false));
+    navigate("/login")
   };
 }
 

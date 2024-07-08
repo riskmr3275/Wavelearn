@@ -56,11 +56,10 @@ exports.passwordSuccess = (name, email) => {
 <body>
     <div class="container">
         <div class="message-box">
-            <h1>Dear ${email}</h1>
             <h1>Dear ${name}</h1>
-            <h1>Password Reset Successful</h1>
+            <p>Password Reset Successful of your Account: ${email}</p>
             <p>Your password has been successfully reset. You can now use your new password to log in.</p>
-            <a href="login.html" class="btn">Go to Login</a>
+            <a href="http://localhost:3000/login" class="btn">Go to Login</a>
         </div>
     </div>
 </body>

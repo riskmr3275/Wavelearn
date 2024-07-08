@@ -9,10 +9,7 @@ exports.connect = () => {
         process.exit(1);
     }
 
-    mongoose.connect(mongoUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+    mongoose.connect(mongoUrl)
     .then(() => {
         console.log("Mongodb connected successfully");
     })

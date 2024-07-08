@@ -10,7 +10,7 @@ import { ACCOUNT_TYPE } from "../../../utils/constants"
 import Tab from "../../common/Tab"
 
 function SignupForm() {
-  let styl="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+  let styl="w-full px-5 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -140,7 +140,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="px-22 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-5 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </label>
         <div className="flex gap-x-4">
