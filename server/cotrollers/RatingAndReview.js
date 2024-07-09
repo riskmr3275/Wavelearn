@@ -2,7 +2,7 @@ const Course = require("../models/Course")
 const User = require("../models/User")
 const RatingAndReview = require("../models/RatingAndReview");
 const { default: mongoose } = require("mongoose");
-
+const Feedback=require("../models/Feedback")
 exports.createRating = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -128,5 +128,38 @@ exports.getAllRatingReview = async (req, res) => {
             success: false,
             message: "something went wrong while finding the review"
         })
+    }
+}
+
+exports.getFeedback=async(req,res)=>{
+    try {
+        const {firstname,lastname,email,phoneNo,message}=req.body
+        if(!firstname||!lastname||!email||!message||!phoneNo)
+        {
+            return res.status(400).json({
+                success:false,
+                message:"All Field are required"
+            })
+        }
+        console.log(req.body);
+        const feed=await Feedback.create({
+            firstname,
+            lastname,
+            email,
+            phoneNo,
+            message
+        })
+        return res.status(200).json({
+            success:true,
+            message:"Feedback submitted",
+            data:feed
+        })
+    } catch (error) {
+        console.log("errro from feedBack field",error);
+        return res.status(500).json({
+            success:false,
+            message:"internal Sever error"
+        })
+        
     }
 }

@@ -11,6 +11,7 @@ import Login from './pages/Login'
 import Signup from './pages/Singup'
 import UpdatePassword from './pages/UpdatePassword'
 import VerifyEmail from './pages/VerifyEmail'
+import ContactUs from './pages/ContactUs'
 
 
 function App() {
@@ -64,6 +65,14 @@ function App() {
           element={
             <OpenRoute>
               <About/>
+            </OpenRoute>
+          }
+        />
+         <Route
+          path="contact"
+          element={
+            <OpenRoute>
+              <ContactUs/>
             </OpenRoute>
           }
         />

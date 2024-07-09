@@ -13,15 +13,14 @@ const {
   resetPasswordToken,
   resetPassword,
 } = require("../cotrollers/ResetPassword")
-
+const {getFeedback}=require("../cotrollers/RatingAndReview")
 const { auth } = require("../middlewares/auth")
 
 // Routes for Login, Signup, and Authentication
 
-// ********************************************************************************************************
-//                                      Authentication routes
-// ********************************************************************************************************
-
+ 
+// Route for Feedback
+router.post("/feedback",getFeedback)
 // Route for user login
 router.post("/login", login)
 
@@ -34,9 +33,7 @@ router.post("/sendotp", sendotp)
 // Route for Changing the password
 router.post("/changepassword", auth, changePassword)
 
-// ********************************************************************************************************
-//                                        Reset Password                                                 //
-// ********************************************************************************************************
+ 
 
 // Route for generating a reset password token
 router.post("/reset-password-token", resetPasswordToken)
