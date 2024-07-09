@@ -1,7 +1,7 @@
 # React + Vite
 "Welcome to Wavelearn!
 Empowering Education for Everyone
-At [Your Platform Name], we believe that education is a fundamental right and a powerful tool for personal and societal transformation. Our mission is to make high-quality learning accessible to everyone, everywhere.
+At Wavelearn, we believe that education is a fundamental right and a powerful tool for personal and societal transformation. Our mission is to make high-quality learning accessible to everyone, everywhere.
 
 What We Offer
 Diverse Courses: Explore a wide range of subjects and skills taught by expert instructors.
