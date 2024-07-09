@@ -1,4 +1,19 @@
 # React + Vite
+"Welcome to Wavelearn!
+Empowering Education for Everyone
+At [Your Platform Name], we believe that education is a fundamental right and a powerful tool for personal and societal transformation. Our mission is to make high-quality learning accessible to everyone, everywhere.
+
+What We Offer
+Diverse Courses: Explore a wide range of subjects and skills taught by expert instructors.
+Interactive Learning: Engage with interactive content, quizzes, and assignments to reinforce your knowledge.
+Flexible Scheduling: Learn at your own pace, anytime and anywhere, with our user-friendly platform.
+Community Support: Join a vibrant community of learners and educators, and collaborate to achieve your goals.
+Our Vision
+"Education is the most powerful weapon which you can use to change the world." – Nelson Mandela
+
+We are committed to providing an inclusive and supportive learning environment that empowers individuals to reach their full potential and contribute positively to their communities."
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
