@@ -2,6 +2,8 @@ const Course = require("../models/Course")
 const User = require("../models/User")
 const RatingAndReview = require("../models/RatingAndReview");
 const { default: mongoose } = require("mongoose");
+const  mailSender =require("../utils/mailSender")
+const {feedbackMail} =require("../Mail/Template/Feedback")
 const Feedback=require("../models/Feedback")
 exports.createRating = async (req, res) => {
     try {
@@ -149,9 +151,10 @@ exports.getFeedback=async(req,res)=>{
             phoneNo,
             message
         })
+        await mailSender(email,"Thank you for giving your valuable feedback",feedbackMail(firstname))
         return res.status(200).json({
             success:true,
-            message:"Feedback submitted",
+            message:"Feedback submitted", 
             data:feed
         })
     } catch (error) {

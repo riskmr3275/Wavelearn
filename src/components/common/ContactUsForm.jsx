@@ -24,7 +24,7 @@ const ContactUsForm = () => {
         formData
       );
       console.log("Response from Feedback ROute", response);
-      toast.success("Feedback sent successfully!😍", {
+      toast.success("Thank you for your valuable feedback!😍", {
         duration: 4000, // Set duration in milliseconds
       });
       setLoading(false);
@@ -158,7 +158,7 @@ const ContactUsForm = () => {
           type="submit"
           className="bg-yellow-5 text-black font-semibold w-full py-5 rounded mt-4 transition-all duration-700"
         >
-          {loading ? "Submitting..." : "Send Feeback"}
+          {loading ? "Sending..." : "Send Feeback"}
         </button>
       </form>
     </div>

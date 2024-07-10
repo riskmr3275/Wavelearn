@@ -72,9 +72,9 @@ exports.otpMail=(otp)=>{
             <a href="https://www.google.com" class="button">Visit WaveLearn</a>
         </div>
         <div class="footer">
-            © 2024 WaveLearn. All rights reserved Risu Gupta.
+            © 2024 WaveLearn Corporation. All rights reserved. Hostel 9 Manit Bhopal, Bhopal(Madhya Pradesh)
         </div>
-    </div>
+    </div> 
 </body>
 </html>
 `

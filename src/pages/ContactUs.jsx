@@ -16,7 +16,7 @@ const ContactUs = () => {
                 <TiMessages />
                 <p>Chat on us</p>
               </div>
-              <div className="text-white text-xl ml-8"><p>Our mission to assist in all possible way.risugupta208.nitb@gmail.com</p></div>
+              <div className="text-white text-xl ml-8"><p>Our mission to assist in all possible risugupta208.nitb@gmail.com</p></div>
             </div>
             
             <div >
