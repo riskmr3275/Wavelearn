@@ -1,11 +1,12 @@
 import { toast } from "react-hot-toast";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { setLoading, setToken } from "../../slices/authSlice";
 import { resetCart } from "../../slices/cartSlice";
 import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiconnector";
 import { endpoints } from "../api";
-
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const {
   SENDOTP_API,
@@ -14,6 +15,7 @@ const {
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
 } = endpoints;
+// const {user}=useSelector((state)=>state.profile)
 // const navigate=useNavigate()
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -63,22 +65,22 @@ export function signUp(
     dispatch(setLoading(true));
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
-            firstName,
-            lastName,
-            email,
-            password,
-            confirmPassword,
-            accountType,
-            otp,
-            contactNumber:"7979767459"
-      }).catch((error)=>console.log("error form frontend",error));
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        accountType,
+        otp,
+        contactNumber: "7979767459",
+      }).catch((error) => console.log("error form frontend", error));
 
       console.log("SIGNUP API RESPONSE............", response);
 
       if (!response.data.success) {
         throw new Error(response.data.message);
-        toast.error("cannot signup")
-        return 
+        toast.error("cannot signup");
+        return;
       }
       toast.success("Signup Successful");
       navigate("/login");
@@ -96,7 +98,7 @@ export function signUp(
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function login(email, password, navigate) {
-  return async (dispatch) => {
+  return async ({dispatch}) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
 
@@ -119,8 +121,8 @@ export function login(email, password, navigate) {
         : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`;
       dispatch(setUser({ ...response.data.user, image: userImage }));
 
-      localStorage.setItem("token", JSON.stringify(response.data.token));
-      localStorage.setItem("user", JSON.stringify(response.data.token));
+      localStorage.setItem("token", JSON.stringify(response.data?.token));
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/dashboard/my-profile");
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
@@ -183,12 +185,10 @@ export function resetPassword(password, confirmPassword, token, navigate) {
     } catch (error) {
       console.log("RESETPASSWORD ERROR............", error);
       toast.error("Failed To Reset Password in auth api page");
-       
-
     }
     toast.dismiss(toastId);
     dispatch(setLoading(false));
-    navigate("/login")
+    navigate("/login");
   };
 }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
