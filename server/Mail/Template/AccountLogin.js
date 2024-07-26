@@ -90,7 +90,7 @@ exports.accountLogin = (name) => {
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://example.com/logo.png" alt="Waveleran Logo">
+            <img src="" alt="Waveleran Logo">
         </div>
         <h2>Your Account Login Details on Wave learn</h2>
         <p>Hello ${name},</p>

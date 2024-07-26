@@ -8,7 +8,7 @@ const ContactUs = () => {
   return (
     <div>
       <div className="mx-auto max-w-maxContent">
-        <div className="flex flex-row  items-center justify-center gap-20 mt-40 mb-20">
+        <div className="flex lg:flex-row  items-center justify-center gap-20 mt-40 mb-20 flex-col">
           {/* for list of data */}
           <div className="w-[50%] flex flex-col text-white bg-blue-700 rounded-md p-20 gap-10 m-0">
             <div >

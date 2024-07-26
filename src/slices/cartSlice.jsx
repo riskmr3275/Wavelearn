@@ -8,7 +8,7 @@ const initialState = {
   total: localStorage.getItem("total")//total number of item in the cart
     ? JSON.parse(localStorage.getItem("total"))
     : 0,
-  totalItems: localStorage.getItem("totalItems")//total amount value of the cart
+  totalItems: localStorage.getItem("totalItems")//total amount value of the cart value
     ? JSON.parse(localStorage.getItem("totalItems"))
     : 0,
 }
@@ -24,7 +24,7 @@ const cartSlice = createSlice({
       if (index >= 0) {
         // If the course is already in the cart, do not modify the quantity
         toast.error("Course already in cart")
-        return
+        return;
       }
       // If the course is not in the cart, add it to the cart
       state.cart.push(course)
@@ -54,7 +54,7 @@ const cartSlice = createSlice({
         // show toast
         toast.success("Course removed from cart")
       }
-    },
+    }, 
     resetCart: (state) => {
       state.cart = []
       state.total = 0

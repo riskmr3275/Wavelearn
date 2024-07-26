@@ -61,7 +61,7 @@ exports.verificationEmail=()=>{
         </div>
         <div class="content">
             <p>Hi [User's First Name],</p>
-            <p>Thank you for signing up on [Platform Name]! To complete your registration, please verify your email address by clicking the button below:</p>
+            <p>Thank you for signing up on Wavelearn! To complete your registration, please verify your email address by clicking the button below:</p>
             
             <a href="[Verification URL]" class="button">Verify Email</a>
             

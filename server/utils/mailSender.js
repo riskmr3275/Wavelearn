@@ -6,7 +6,7 @@ const mailSender = async (email, title, body) => {
       host: process.env.MAIL_HOST,//type of mail system want to use(ex: gmail,yahoo,rediff.....etc)
       auth: {
         user: process.env.MAIL_USER,//company mail address or admin mail address
-        pass: process.env.MAIL_PASS,// less secured password that generated from in company mail account
+        pass: process.env.MAIL_PASS,//less secured password that generated from in company mail account
       },
       secure: false,
     })

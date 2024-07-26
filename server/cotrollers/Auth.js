@@ -9,7 +9,6 @@ const {accountLogin}=require("../Mail/Template/AccountLogin")
 require("dotenv").config()
 // const cookie=require("cookie-parser")
 
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++=Send Otp Function++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 exports.sendotp = async (req, res) => {
     try {

@@ -1,10 +1,11 @@
 import { toast } from "react-hot-toast";
-
+import { useNavigate } from 'react-router-dom';
 import { setLoading, setToken } from "../../slices/authSlice";
 import { resetCart } from "../../slices/cartSlice";
 import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiconnector";
 import { endpoints } from "../api";
+
 
 const {
   SENDOTP_API,
@@ -13,7 +14,10 @@ const {
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
 } = endpoints;
-
+// const navigate=useNavigate()
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
@@ -41,7 +45,9 @@ export function sendOtp(email, navigate) {
     toast.dismiss(toastId);
   };
 }
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function signUp(
   accountType,
   firstName,
@@ -80,12 +86,15 @@ export function signUp(
       console.log("SIGNUP API ERROR............", error);
       toast.error("Signup Failed");
       navigate("/signup");
+      dispatch(setLoading(false));
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);
   };
 }
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function login(email, password, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
@@ -121,7 +130,9 @@ export function login(email, password, navigate) {
     toast.dismiss(toastId);
   };
 }
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function getPasswordResetToken(email, setEmailSent) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
@@ -147,7 +158,9 @@ export function getPasswordResetToken(email, setEmailSent) {
     dispatch(setLoading(false));
   };
 }
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function resetPassword(password, confirmPassword, token, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
@@ -178,7 +191,9 @@ export function resetPassword(password, confirmPassword, token, navigate) {
     navigate("/login")
   };
 }
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function logout(navigate) {
   return (dispatch) => {
     dispatch(setToken(null));

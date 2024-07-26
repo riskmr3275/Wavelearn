@@ -12,11 +12,11 @@ const otpSchema = new mongoose.Schema({
     type: String,
     required: true
   }],
-  // created attribute is help to remove the otp after getration of five minute
+  // created attribute is help to remove the otp after getration of ten minute
   createdAt: {
     type: Date,
     default: Date.now(),
-    expires: 5* 60
+    expires: 10* 60
   }
 })
 
