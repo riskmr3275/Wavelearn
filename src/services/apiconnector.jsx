@@ -17,6 +17,7 @@ export const apiConnector = async (
       headers: headers,
       params: params,
     });
+    console.log(response);
     return response;
   } catch (error) {
     console.error("API call error:", error);

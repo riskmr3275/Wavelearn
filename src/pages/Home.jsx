@@ -45,7 +45,7 @@ const Home = () => {
             Learn more
           </CTAButton>
           <CTAButton active={false} linkto={"/login"}>
-            Book a demo
+            Book a demo 
           </CTAButton>
         </div>
         {/* Video Add */}

@@ -6,8 +6,9 @@ const User = require("../models/User")
 exports.auth = async (req, res, next) => {
     try {
         // Extract Token
-        const token = req.cookies.token || req.body.token || req.header("authorization").replace("Bearer", "");
+        const token = req.cookies.token || req.body.token || req.header("authorization")?.replace("Bearer ", "");
         // if token is missing
+        console.log("token is in auth::",token);
         if (!token) {
             return res.status(401).json({
                 success: false,
@@ -15,17 +16,20 @@ exports.auth = async (req, res, next) => {
             });
         }
         // verify the token
+        console.log("Going to do decode");
         try {
             const decode = await jwt.verify(token, process.env.JWT_SECRET)//decode conatin payload
             console.log(decode);
             req.user = decode
+            next();
         } catch (error) {
             return res.status(401).json({
                 success: false,
-                message: "token is invalid"
+                message: "token is invalid",
+                error:error.message
             });
         }
-        next();
+        
     } catch (error) {
         return res.status(401).json({
             success: false,

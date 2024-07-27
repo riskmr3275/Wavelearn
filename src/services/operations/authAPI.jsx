@@ -5,9 +5,7 @@ import { resetCart } from "../../slices/cartSlice";
 import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiconnector";
 import { endpoints } from "../api";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-
+ 
 const {
   SENDOTP_API,
   SIGNUP_API,
@@ -98,7 +96,7 @@ export function signUp(
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export function login(email, password, navigate) {
-  return async ({dispatch}) => {
+  return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
 
@@ -126,7 +124,7 @@ export function login(email, password, navigate) {
       navigate("/dashboard/my-profile");
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
-      toast.error("Login Failed");
+      toast.error(error.response.data.message);
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);

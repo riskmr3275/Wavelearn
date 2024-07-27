@@ -246,8 +246,8 @@ exports.changePassword = async (req, res) => {
     try {
         // Fetch Data
         const { oldPassword, newPassword, confirmNewPassword } = req.body;
-        const userId = req.user._id; // Assuming user ID is available in req.user while auth is runing and jwt is decoded and push it into the req.user
-
+        const userId = req.user.id; // Assuming user ID is available in req.user while auth is runing and jwt is decoded and push it into the req.user
+        console.log(userId);
         // Validate the input
         if (newPassword !== confirmNewPassword) {
             return res.status(400).json({
