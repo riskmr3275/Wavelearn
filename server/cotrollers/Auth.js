@@ -45,7 +45,6 @@ exports.sendotp = async (req, res) => {
             });
             result = await OTP.findOne({ otp: otp })
         }
-
         // Agar unique otp mil gyi toh db me store karenge
         const payLoad = { email, otp }
 
@@ -58,8 +57,6 @@ exports.sendotp = async (req, res) => {
             message: "Otp Generate Successfully",
             otp
         })
-
-
     } catch (error) {
         console.log("Error genrated from Auth File", error);
         res.status(401).json({

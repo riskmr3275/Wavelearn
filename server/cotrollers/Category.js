@@ -1,10 +1,12 @@
 const { append } = require("express/lib/response")
 const Category = require("../models/Category")
 
-function getRandomInt(max) {
+function getRandomInt(max) 
+{
   return Math.floor(Math.random() * max)
 }
-// done by the admin only
+// done by the admin 
+
 exports.createCategory = async (req, res) => {
   try {
     const { name, description } = req.body

@@ -29,7 +29,7 @@ export function updateDisplayPicture(token, formData) {
         "UPDATE_DISPLAY_PICTURE_API API RESPONSE............",
         response
       )
-
+      
       if (!response.data.success) {
         throw new Error(response.data.errror)
       }

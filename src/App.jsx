@@ -26,7 +26,7 @@ function App() {
           path="login"
           element={
             <OpenRoute>
-              <Login />
+              <Login/>
             </OpenRoute>
           }
         />

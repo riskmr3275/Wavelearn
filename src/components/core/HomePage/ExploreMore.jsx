@@ -1,6 +1,7 @@
 import React from "react";
 import { HomePageExplore } from "../../../data/homepage-explore";
 import { useState } from "react";
+import { useEffect } from "react";
 import HighLightText from "./HighLightText";
 import Coursecard from "./Coursecard";
 const ExploreMore = () => {
@@ -17,6 +18,7 @@ const ExploreMore = () => {
   const setMyCards = (value) => {
     setCurrentTab(value);
     const result = HomePageExplore.filter((course) => course.tag === value);
+    console.log(result);
     setCourses(result[0].courses);
   };
   return (
@@ -42,8 +44,7 @@ const ExploreMore = () => {
               }
              px-5 py-2 rounded-full transition-all hover:bg-richblack-900 hover:text-richblack-5 hover: font-semibold cursor-pointer `}
               key={index}
-              onClick={() => setMyCards(element)}
-            >
+              onClick={() => setMyCards(element)}>
               {element}
             </div>
           );

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HiUsers } from "react-icons/hi";
 import { ImTree } from "react-icons/im";
 
 const CourseCard = ({ cardData, currentCard, setCurrentCard }) => {
+  useEffect(() => {
+    setCurrentCard(cardData?.heading);
+  }, [cardData]);
   return (
     <div
       className={`w-[360px] lg:w-[20%] ${
         currentCard === cardData?.heading
-          ? "bg-white shadow-[12px_12px_0_0] shadow-yellow-50 transition-all duration-700"
+          ? "bg-white shadow-[12px_12px_0_0] shadow-blue-300 transition-all duration-400"
           : "bg-richblack-800"
       }  text-richblack-25 h-[300px] box-border cursor-pointer`}
       onClick={() => setCurrentCard(cardData?.heading)}

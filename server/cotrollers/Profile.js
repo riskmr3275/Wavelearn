@@ -1,6 +1,7 @@
 const { ProfilePicUpdate } = require("../Mail/Template/ProfilePicUpdate");
 const Profile = require("../models/Profile");
 const User = require("../models/User");
+const mailSender = require("../utils/mailSender")
 const { uploadImageToCloudinary } = require("../utils/ImageUploader");
 // +++++++++++++++Profle update ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 exports.updateProfile = async (req, res) => {
@@ -143,7 +144,7 @@ exports.updateDisplayPicture = async (req, res) => {
         // Update user details with the new image URL
         userDetails.image = finalImageUrl.secure_url;
         await userDetails.save();
-        await mailSender(userDetails.email,"Update  Successfully",ProfilePicUpdate())
+        await mailSender(userDetails.email,"Update Successfully",ProfilePicUpdate())
         res.send({
             success: true,
             message: `Image Updated successfully`,
@@ -156,7 +157,6 @@ exports.updateDisplayPicture = async (req, res) => {
             success: false,
             message: "Can't upload image right now, try again later.",
             error:error.message
-
         });
     }
 };

@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const Spinner = () => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900"></div>
+    <div class="flex space-x-2 justify-center items-center bg-richblack-900 h-screen dark:invert">
+      <span class="sr-only">Loading...</span>
+      <div class="h-8 w-8 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+      <div class="h-8 w-8 bg-white rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+      <div class="h-8 w-8 bg-white rounded-full animate-bounce"></div>
     </div>
   );
 };
