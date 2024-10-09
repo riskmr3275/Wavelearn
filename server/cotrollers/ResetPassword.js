@@ -25,7 +25,7 @@ exports.resetPasswordToken = async (req, res) => {
 
         // Frontnd ka url genrate kara
         const url = `http://localhost:3000/update-password/${token}`
-        // ab mail send karte hai user ke email pe url ke sath
+        // Sending the url via mail to the user
         await mailSender(email, "Reset passwrod link", `Passwrd reset Link:${url}`)
 
         return res.status(200).json({
