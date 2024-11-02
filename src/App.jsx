@@ -18,7 +18,7 @@ import MySettings from "./components/core/Dashboard/Settings/MySettings";
 
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
+    <div className=" min-h-screen bg-richblack-900 flex flex-col font-inter">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>

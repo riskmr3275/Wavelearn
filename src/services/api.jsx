@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/api/v1"   //deployed backend base url
+const BASE_URL = "https://wavelearnbck.vercel.app/api/v1"   //deployed backend base url
 
 
 // AUTH ENDPOINTS
