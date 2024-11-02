@@ -24,7 +24,7 @@ database.connect()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: 'https://wavelearn-risu-guptas-projects.vercel.app', // Allow only this origin
+    origin: process.env.FRONTEND_URL, // Allow only this origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
     credentials: true, // Allow credentials (optional)
     optionsSuccessStatus: 204 // For legacy browser support
