@@ -1,4 +1,4 @@
-const BASE_URL =process.env.BASE_URL||"https://wavelearnbck.vercel.app/api/v1";  //deployed backend base url
+const BASE_URL =process.env.BASE_URL||"https://backendw-git-main-risu-guptas-projects.vercel.app/api/v1";  //deployed backend base url
 
 
 // AUTH ENDPOINTS
