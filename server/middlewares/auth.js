@@ -3,7 +3,7 @@ require("dotenv").config();
 const User = require("../models/User")
 
 // auth
-exports.auth = async (req, res, next) => {
+exports.auth =   (req, res, next) => {
     try {
         // Extract Token
         const token = req.cookies.token || req.body.token || req.header("authorization")?.replace("Bearer ", "");
@@ -18,7 +18,7 @@ exports.auth = async (req, res, next) => {
         // verify the token
         console.log("Going to do decode");
         try {
-            const decode = await jwt.verify(token, process.env.JWT_SECRET)//decode conatin payload
+            const decode =   jwt.verify(token, process.env.JWT_SECRET)//decode conatin payload
             console.log(decode);
             req.user = decode
             next();
